@@ -35,7 +35,7 @@ apiRoute.get(`/notes`, (req, res) => {
 
 
 // POST Route for notes
-//Similar to get in module 11 lesson 21
+//Similar to post in module 11 lesson 21
 apiRoute.post(`/notes`, (req, res) => {
     //Console log to confirm
     console.info(`${req.method} request received to add a note`);
@@ -43,15 +43,29 @@ apiRoute.post(`/notes`, (req, res) => {
     readFromFile(`./db/db.json`, `utf8`).then(function (data) {
     // Parse data to get an array of objects
     let noteArray = JSON.parse(data);
-    //Grab the new note to be added
-    let newNote = req.body;
-    // Add new note to the array of note objects
-    noteArray.push(newNote);
+    // Destructuring assignment for the items in req.body
+    const {title, text} = req.body;
+    // If all the required properties are present
+    if(title && text){
+      // Variable for the object we will save
+      const newNote = {
+        title,
+        text,
+      }
 
-    noteArray = JSON.stringify(noteArray);
-      //Call the writeToFile function from above  
-     writeToFile(`./db/db.json`, noteArray);
-     // sends a JSON response. according to geeksforgeeks
+      // Add new note to the note array
+      noteArray.push(newNote);
+
+      // Convert the array to a string so we can save it
+      noteArray = JSON.stringify(noteArray);
+      //Call the writeToFile function from above to save 
+      writeToFile(`./db/db.json`, noteArray);
+    }else{
+      res.json('Error in posting feedback');
+    }
+    
+    
+     // sends a JSON response. according to geeksforgeeks to add notes to page
      res.json(noteArray);
   });
 });
