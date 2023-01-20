@@ -10,8 +10,8 @@ const express = require('express');
 // Helper method for generating unique ids
 const htmlRoutes = require('./routes/html');
 const apiRoutes = require('./routes/api');
-//Port number
-const PORT = 3001;
+//Port number Shout out to Jonny for this line
+const PORT = process.env.PORT || 3001;
 //express application
 const app = express();
 
