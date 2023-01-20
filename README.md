@@ -12,7 +12,7 @@
 ## Description
 Web application that uses a heroku server and express to save notes.
 <br>
-Running heroku server can be found [HERE](https://heroku.com)
+Running heroku server can be found [HERE](https://secure-eyrie-55069.herokuapp.com/notes)
 ![screenshot of working app](https://github.com/ColtonWilson/Note-Taker/blob/main/Working.png)
 ## Installation
 To install must have a package.json and use command
@@ -35,3 +35,6 @@ Please see https://mit-license.org/ to get detailed information for this license
 ## Questions
 You can find me [HERE](https://github.com/ColtonWilson) on Github
 You can email me at colton_wilson93@yahoo.com if you have any additional questions.
+
+## Special Thanks
+Special Thanks to Jonny for helping with the setup to Heroku
